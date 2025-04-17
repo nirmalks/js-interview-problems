@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+   <ul id="item-list">
+    <li>Item 1</li>
+   <li>Item 2</li>
+   <li>Item 3</li>
+</ul>
+
+ <div id="parent">
+   <button id="child">Click me!</button>
+   </div>
+</body>
+<script>
+  const itemList = document.getElementById('item-list');
+
+itemList.addEventListener("click", (el) => {
+  console.log(`clicked on ${el.target.textContent}`)
+})
+
+const parentDiv = document.createElement('div')
+parentDiv.id ='parent-2'
+const button = document.createElement('button')
+button.id ='child'
+
+parentDiv.appendChild(button);
+document.body.appendChild(parentDiv);
+const parent = document.getElementById('parent-2');
+const child = document.getElementById('child');
+parent.addEventListener("click", (event) => {
+  console.log(`clicked on parent`)
+  event.stopPropagation();
+
+})
+
+// child.addEventListener("click", (event) => {
+//   console.log(`clicked on child `)
+//   event.stopPropagation();
+
+// })
+
+const newel = document.createElement('div')
+newel.textContent = 'hello'
+newel.id = 'divel'
+document.body.appendChild(newel)
+const divTomodify = document.getElementById('divel');
+divTomodify.innerText = 'modfello'
+// divTomodify.parentNode.removeChild(divTomodify)
+divTomodify.classList.add('newclass')
+divTomodify.style.backgroundColor ='green'
+
+</script>
+</html>

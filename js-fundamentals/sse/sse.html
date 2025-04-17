@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script
+>
+const eventSource = new EventSource('/sse-stream');
+
+eventSource.addEventListener('open', () => {
+  console.log('Connection opened');
+});
+
+// Fired when a message is received from the server.
+eventSource.addEventListener('message', (event) => {
+  console.log('Received message:', event.data);
+});
+
+// Fired when an error occurs.
+eventSource.addEventListener('error', (error) => {
+  console.error('Error occurred:', error);
+});
+
+</script>
+</body>
+</html>
