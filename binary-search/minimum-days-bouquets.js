@@ -31,7 +31,7 @@ function possible(bloomDay, day, m, k) {
   let count = 0;
   let bouquets = 0;
 
-  for (let i = 0; i < n; i++) {
+  for (let i = 0; i < size; i++) {
     if (bloomDay[i] <= day) {
       count++;
     } else {
