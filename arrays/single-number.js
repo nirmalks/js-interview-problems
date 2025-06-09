@@ -21,3 +21,22 @@ var singleNumber = function (nums) {
 
   return -1;
 };
+
+/*
+The XOR operation (^) has the following key properties:
+a ^ a = 0  → Any number XOR itself is zero.
+a ^ 0 = a  → Any number XOR zero is the number itself.
+XOR is commutative and associative, which means the order of operands doesn’t matter.
+When you XOR all numbers in the array:
+All numbers that appear twice will cancel each other out and become 0.
+The number that appears only once will remain, because it has no pair to cancel it out.
+*/
+
+var singleNumber = function (nums) {
+  let result = 0;
+  for (let num of nums) {
+    result ^= num;
+  }
+
+  return result;
+};
