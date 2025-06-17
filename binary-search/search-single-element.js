@@ -21,6 +21,11 @@ function searchSingleBruteForce(nums) {
   }
 }
 
+/*
+Before the unique element, pairs will start at even indices (0, 2, ...)
+
+After the unique element, pairs will start at odd indices (1, 3, ...)
+*/
 function searchSingleBinary(nums) {
   const size = nums.length;
 
@@ -30,6 +35,7 @@ function searchSingleBinary(nums) {
   if (nums[0] != nums[1]) {
     return nums[0];
   } else if (nums[size - 1] != nums[size - 2]) {
+    //     // Unique is at the end
     return nums[size - 1];
   }
 
@@ -38,9 +44,13 @@ function searchSingleBinary(nums) {
 
   while (left <= right) {
     let mid = left + Math.floor((right - left) / 2);
+
+    // Check if mid is the unique element
     if (nums[mid] != nums[mid + 1] && nums[mid] != nums[mid - 1]) {
       return nums[mid];
     } else if (
+      // Pair is starting at even index → unique is on the right
+      // OR Pair is starting at odd index → unique is on the left
       (mid % 2 === 0 && nums[mid] == nums[mid + 1]) ||
       (mid % 2 == 1 && nums[mid] == nums[mid - 1])
     ) {

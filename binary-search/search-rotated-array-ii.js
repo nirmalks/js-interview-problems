@@ -3,6 +3,24 @@
  * @param {number} target
  * @return {boolean}
  */
+
+/*
+Binary search loop (same logic): check nums[mid] == target
+
+But if nums[left] == nums[mid] == nums[right], you can’t tell which half is sorted. In that case, you:
+
+left++ and right-- to shrink the search window until the ambiguity clears.
+
+Otherwise:
+
+If left half is sorted (nums[left] <= nums[mid])
+
+Check if target lies in that half
+
+Else:
+
+Right half is sorted — check if target lies there
+*/
 var search = function (nums, target) {
   let left = 0;
   let right = nums.length - 1;
